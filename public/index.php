@@ -18,21 +18,24 @@ class html {
         $html = '<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"><script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>';
         $html .= '<html>';
         $html .= '<table class="table table-hover">';
-        $html .='<table class = "table table-bordered table-dark">';
+        $html .='<table class = "table table-bordered ">';
         $count = 0;
         foreach ($records as $record) {
             $array = $record->returnArray();
             $fields = array_keys($array);
             $values = array_values($array);
+
             if($count == 0) {
-                $var = self::generateHtml($fields, $html, $head = 'true');
+                $var = self::generateHtml($fields, $html, $head = '1');
                 $html = $var;
-                $var = self::generateHtml($values, $html, $head = 'false');
+                $var = self::generateHtml($values, $html, $head = '0');
                 $html = $var;
+
             } else
             {
-                $var = self::generateHtml($values, $html, $head = 'false');
+                $var = self::generateHtml($values, $html, $head = '0');
                 $html = $var;
+
             }
             $count++;
         }
@@ -40,11 +43,11 @@ class html {
         return $html;
     }
     public static function generateHtml($data, $html, $head) {
-        if($head == 'true') {
+        if($head == '1') {
             $html .= '<thead>';
             $html .= '<tr>';
             foreach ($data as $key => $value) {
-                $html .= '<th scope="col">' . htmlspecialchars($value) . '</th>';
+                $html .= '<th scope ="col">' . ($value) . '</th>';
             }
             $html .= '</tr>';
             $html .= '</thead>';
@@ -52,7 +55,7 @@ class html {
             $html .= '<tbody>';
             $html .= '<tr>';
             foreach ($data as $key => $value) {
-                $html .= '<td>' . htmlspecialchars($value) . '</td>';
+                $html .= '<td>' . ($value) . '</td>';
             }
             $html .= '</tr>';
             $html .= '<tbody>';
