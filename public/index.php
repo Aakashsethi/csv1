@@ -90,7 +90,7 @@ class record {
         $array = (array) $this;
         return $array;
     }
-    public function createProperty($name = 'first', $value = '') {
+    public function createProperty($name = 'first', $value = 'AS') {
         $this->{$name} = $value;
     }
 }
