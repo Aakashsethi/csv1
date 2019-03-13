@@ -16,7 +16,6 @@ class main {
 class html {
     static public function generateTable($records) {
         $html = '<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"><script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>';
-        $html .= '<html>';
         $html .= '<table class="table table-hover">';
         $html .='<table class = "table table-bordered ">';
         $count = 0;
